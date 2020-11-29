@@ -4,18 +4,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/b34966f7b7.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script>
     <link rel="stylesheet" href="./assets/css/normalize.css">
     <link rel="stylesheet" href="./assets/css/skeleton.css">
     <link rel="stylesheet" href="./assets/css/style.css">
-    <title>Document</title>
+    <title>S K O L</title>
 </head>
 
 <body class="container">
     <h1>SKOL</h1>
     <img src="./assets/img/logo.png">
-    <button id="skolChant" class="button-primary">SKOL CHANT</button>
-    <button id="gjallerhorn" class="button-primary">GJALLERHORN</button>
+    <button id="skolChant" class="u-full-width audio-btn" data-audio="skolChantAudio">SKOL CHANT</button>
+    <button id="scoreSong" class="u-full-width audio-btn" data-audio="scoreSongAudio">SCORE SONG</button>
+    <button id="gjallarhorn" class="u-full-width audio-btn" data-audio="gjallarhornAudio">GJALLARHORN</button>
 
+
+    <audio class="audio" id="gjallarhornAudio">
+        <source src="./assets/audio/gjallarhorn.mp3">
+    </audio>
+    <audio class="audio" id="skolChantAudio">
+        <source src="./assets/audio/skol_chant.mp3">
+    </audio>
+    <audio class="audio" id="scoreSongAudio">
+        <source src="./assets/audio/score_song.mp3">
+    </audio>
 </body>
+
+<script>
+    $(document).ready(function () {
+        $(".audio-btn").on("click", function () {
+            const audioPlayer = $(`#${$(this).data("audio")}`)[0];
+            audioPlayer.volume = 0.1;
+            audioPlayer.play();
+        })
+    })
+</script>
 
 </html>
