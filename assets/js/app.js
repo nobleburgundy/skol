@@ -11,21 +11,24 @@ $(document).ready(function () {
 
   $("#volumeInput").on("change", function () {
     let newVolume = $(this).val() / 100;
-    volume = newVolume;
-    console.log(newVolume);
+    volume = newVolume >= 1 ? 1 : newVolume;
     localStorage.setItem("skol_volume", newVolume);
   });
 
   $(".fa-plus").on("click", function () {
     volume += 0.1;
-    console.log(volume);
+    if (volume > 1.0) {
+      volume = 1.0;
+    }
     localStorage.setItem("skol_volume", volume);
     $("#volumeInput").val(volume * 100);
   });
 
   $(".fa-minus").on("click", function () {
     volume -= 0.1;
-    console.log(volume);
+    if (volume < 0) {
+      volume = 0;
+    }
     localStorage.setItem("skol_volume", volume);
     $("#volumeInput").val(volume * 100);
   });
