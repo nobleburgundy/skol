@@ -6,6 +6,7 @@ h1 {
     letter-spacing: 3rem;
     font-family: 'Courier New', Courier, monospace;
     font-size: 10rem;
+    margin-bottom: 0;
 }
 
 button {
@@ -20,37 +21,4 @@ button {
 #volume {
     padding: 1rem;
     width: 100%;
-}
-
-
-
-/*Chrome*/
-
-@media screen and (-webkit-min-device-pixel-ratio:0) {
-    input[type='range'] {
-        overflow: hidden;
-        width: 200px;
-        -webkit-appearance: none;
-        background-color: #ffe70b;
-    }
-
-    input[type='range']::-webkit-slider-runnable-track {
-        height: 10px;
-        -webkit-appearance: none;
-        color: #ffe70b;
-        margin-top: -1px;
-    }
-
-    input[type='range']::-webkit-slider-thumb {
-        width: 20px;
-        -webkit-appearance: none;
-        height: 20px;
-        cursor: ew-resize;
-        background: #000000;
-        box-shadow: -200px 0 0 200px #bd0ed4;
-    }
-
-    input[type='range']:focus {
-        outline: none;
-    }
 }
