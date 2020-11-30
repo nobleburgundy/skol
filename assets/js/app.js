@@ -1,4 +1,4 @@
-let volume = localStorage.getItem("skol_volume") ? localStorage.getItem("skol_volume") : 0.2;
+let volume = localStorage.getItem("skol_volume") ? parseFloat(localStorage.getItem("skol_volume")) : 0.2;
 
 $(document).ready(function () {
   console.log(volume);
@@ -15,5 +15,19 @@ $(document).ready(function () {
     volume = newVolume;
     console.log(newVolume);
     localStorage.setItem("skol_volume", newVolume);
+  });
+
+  $(".fa-plus").on("click", function () {
+    volume += 0.1;
+    console.log(volume);
+    localStorage.setItem("skol_volume", volume);
+    $("#volumeInput").val(volume * 100);
+  });
+
+  $(".fa-minus").on("click", function () {
+    volume -= 0.1;
+    console.log(volume);
+    localStorage.setItem("skol_volume", volume);
+    $("#volumeInput").val(volume * 100);
   });
 });
