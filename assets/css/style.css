@@ -9,6 +9,16 @@ h1 {
     margin-bottom: 0;
 }
 
+#skolChant,
+#gjallarhorn {
+    background-color: #4F2683;
+    color: #ffffff;
+}
+
+#scoreSong {
+    background-color: #FFC62F;
+}
+
 button {
     height: 7rem;
 }

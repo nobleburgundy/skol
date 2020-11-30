@@ -1,7 +1,6 @@
 let volume = localStorage.getItem("skol_volume") ? parseFloat(localStorage.getItem("skol_volume")) : 0.2;
 
 $(document).ready(function () {
-  console.log(volume);
   $("#volumeInput").val(volume * 100);
 
   $(".audio-btn").on("click", function () {
