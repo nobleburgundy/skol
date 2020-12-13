@@ -22,6 +22,7 @@
     <div>
         <img src="./assets/img/logo.png">
     </div>
+    <button id="gameIntro" class="u-full-width audio-btn" data-audio="gameIntroAudio">GAME INTRO</button>
     <button id="skolChant" class="u-full-width audio-btn" data-audio="skolChantAudio">SKOL CHANT</button>
     <button id="scoreSong" class="u-full-width audio-btn" data-audio="scoreSongAudio">SKOL SONG</button>
     <button id="gjallarhorn" class="u-full-width audio-btn" data-audio="gjallarhornAudio">GJALLARHORN</button>
@@ -30,9 +31,11 @@
         <i class="fas fa-minus"></i>
         <input id="volumeInput" type="range" />
         <i class="fas fa-plus"></i>
-
     </span>
 
+    <audio class="audio" id="gameIntroAudio">
+        <source src="./assets/audio/game_intro.mp3">
+    </audio>
     <audio class="audio" id="gjallarhornAudio">
         <source src="./assets/audio/gjallarhorn.mp3">
     </audio>

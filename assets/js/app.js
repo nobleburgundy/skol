@@ -32,4 +32,18 @@ $(document).ready(function () {
     localStorage.setItem("skol_volume", volume);
     $("#volumeInput").val(volume * 100);
   });
+
+  buttonColors();
 });
+
+const buttonColors = () => {
+  const buttons = $("button");
+  const purple = "#4F2683";
+  const yellow = "#FFC62F";
+  let bgColor = yellow;
+  buttons.each((index, button) => {
+    bgColor = bgColor === purple ? yellow : purple;
+    let textColor = bgColor === purple ? "white" : "black";
+    $(button).css({ "background-color": bgColor, color: textColor });
+  });
+};
