@@ -8,10 +8,13 @@ $(document).ready(function () {
   $(".audio-btn").on("click", function () {
     const audioPlayer = $(`#${$(this).data("audio")}`)[0];
     audioPlayer.volume = volume;
+    if ($(this).text()) {
+      btnText = $(this).text();
+    }
+
     if (playOrStop) {
       audioPlayer.play();
       let button = $(this);
-      btnText = $(this).text();
       playOrStop = false;
       $(this).css("opacity", 0.8).html("<i class='fas fa-stop'></i>");
 
@@ -20,6 +23,7 @@ $(document).ready(function () {
         console.log(btnText);
         $(".audio-btn").css("opacity", 1.0);
         button.text(btnText);
+        btnText = "";
       };
     } else {
       audioPlayer.pause();
@@ -27,6 +31,7 @@ $(document).ready(function () {
       $(this).text(btnText);
       audioPlayer.currentTime = 0;
       playOrStop = true;
+      btnText = "";
     }
   });
 
