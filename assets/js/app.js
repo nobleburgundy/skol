@@ -1,12 +1,30 @@
 let volume = localStorage.getItem("skol_volume") ? parseFloat(localStorage.getItem("skol_volume")) : 0.2;
+let btnText;
 
 $(document).ready(function () {
   $("#volumeInput").val(volume * 100);
+  let playOrStop = true;
 
   $(".audio-btn").on("click", function () {
     const audioPlayer = $(`#${$(this).data("audio")}`)[0];
     audioPlayer.volume = volume;
-    audioPlayer.play();
+    if (playOrStop) {
+      audioPlayer.play();
+      btnText = $(this).text();
+      playOrStop = false;
+      $(this).css("opacity", 0.8).html("<i class='fas fa-stop'></i>");
+
+      audioPlayer.onended = function () {
+        console.log("done");
+        $(".audio-btn").css("opacity", 1.0);
+      };
+    } else {
+      audioPlayer.pause();
+      $(this).css("opacity", 1.0);
+      $(this).text(btnText);
+      audioPlayer.currentTime = 0;
+      playOrStop = true;
+    }
   });
 
   $("#volumeInput").on("change", function () {
