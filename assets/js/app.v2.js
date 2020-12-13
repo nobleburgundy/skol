@@ -10,13 +10,16 @@ $(document).ready(function () {
     audioPlayer.volume = volume;
     if (playOrStop) {
       audioPlayer.play();
+      let button = $(this);
       btnText = $(this).text();
       playOrStop = false;
       $(this).css("opacity", 0.8).html("<i class='fas fa-stop'></i>");
 
       audioPlayer.onended = function () {
         console.log("done");
+        console.log(btnText);
         $(".audio-btn").css("opacity", 1.0);
+        button.text(btnText);
       };
     } else {
       audioPlayer.pause();
